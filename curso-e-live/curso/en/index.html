@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>How to Build an AI Services Business · INEMA.CLUB PRO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0E0D14;--bg2:#15131d;--panel:#1a1824;--ink:#ECE6D9;--ink-soft:#C7C2D0;--muted:#948DA6;--faint:#6C6580;
+    --line:#2A2637;--line2:#37324a;--accent:#7CE0C6;--accent-ink:#0E0D14;--warm:#F2B45C;
+    --serif:"Newsreader",Georgia,serif;--sans:"Inter",system-ui,sans-serif;--mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  header.top{padding:26px 0}
+  header.top .wrap{display:flex;align-items:center;gap:10px}
+  header.top .mark{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent);text-decoration:none;font-weight:700}
+  header.top .pro{background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:2px 6px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-decoration:none;margin-left:8px}
+  header.top .course{color:var(--muted);font-size:12px;letter-spacing:.04em;border-left:1px solid var(--line2);padding-left:10px;margin-left:2px;font-family:var(--mono)}
+  .hero{position:relative;padding:10vh 0 9vh;border-bottom:1px solid var(--line);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(55% 48% at 80% 20%,rgba(124,224,198,.14),transparent 60%),radial-gradient(90% 90% at 50% 40%,var(--bg2),var(--bg) 72%)}
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 22px;max-width:18ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{font-family:var(--serif);font-size:clamp(18px,2vw,22px);line-height:1.55;color:var(--ink-soft);max-width:46ch;margin:0 0 34px}
+  .cta{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);text-decoration:none;border-radius:99px;padding:15px 26px;font-weight:700}
+  .cta:hover{opacity:.92}
+  .sub{color:var(--muted);font-size:13.5px;margin-top:14px;font-family:var(--mono)}
+
+  section{padding:8vh 0}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,36px);margin:0 0 28px}
+
+  .resultados{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .resultado{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 24px}
+  .resultado p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .resultado p b{color:var(--ink)}
+
+  .aulas{display:grid;gap:14px}
+  .au{display:grid;grid-template-columns:52px 1fr auto;gap:18px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+  .au .num{font-family:var(--serif);font-size:26px;color:var(--accent);text-align:center}
+  .au h3{font-family:var(--serif);font-weight:500;font-size:19px;margin:0 0 4px}
+  .au p{margin:0;color:var(--muted);font-size:14px}
+  .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  .au:hover{border-color:var(--accent)}
+
+  .publico{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .publico .col{background:var(--panel);padding:22px 24px}
+  .publico .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+  .publico .col.sim .lbl{color:var(--accent)}
+  .publico .col.nao .lbl{color:var(--muted)}
+  .publico ul{margin:0;padding:0;list-style:none}
+  .publico li{position:relative;padding-left:20px;margin:0 0 10px;color:var(--ink-soft);font-size:14.5px;line-height:1.5}
+  .publico li::before{content:"—";position:absolute;left:0;color:var(--faint)}
+
+  footer{border-top:1px solid var(--line);padding:6vh 0 8vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic}
+
+  @media(max-width:720px){ .publico{grid-template-columns:1fr} }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<link href="https://inematds.github.io/evai2026/curso-e-live/curso/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/evai2026/curso-e-live/curso/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/evai2026/curso-e-live/curso/es/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="mark" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
+<span class="course">AI services business</span>
+</div></header>
+<section class="hero"><div class="wrap">
+<p class="kicker">AI for your work</p>
+<h1>Build a business worth <em>AI services</em> without knowing how to code</h1>
+<p class="lead">Eight practical lessons to turn the profession you already have into your first paid AI service — at your own pace, right in the browser.</p>
+<a class="cta" href="curso.html#trilha">start now →</a>
+<p class="sub">~20 min per lesson · nothing to download · works on phones and computers</p>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">What you'll know how to do</p>
+<h2>Results, not theory</h2>
+<div class="resultados">
+<div class="resultado"><p><b>Land your first paid project</b> — with 3 opportunities mapped in your circle and a 30-day plan to turn one of them into a contract.</p></div>
+<div class="resultado"><p><b>Deliver professional-quality work</b> — a content engine, an assistant with your business’s memory, and a test checklist before anything is delivered.</p></div>
+<div class="resultado"><p><b>Sell to those who pay more</b> — the map of 6 questions that turns a conversation with a large company into a signed contract.</p></div>
+</div>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">Who it’s for</p>
+<h2>Made for where you are now</h2>
+<div class="publico">
+<div class="col sim">
+<p class="lbl">is for you if</p>
+<ul>
+<li>You’re an accountant, lawyer, real estate agent, administrative assistant—or work in another professional or office job—and want to earn extra income with AI.</li>
+<li>You use a computer comfortably in your day-to-day life, but you’ve never programmed—and don’t plan to.</li>
+<li>You have 30 minutes to 1 hour per session and prefer learning by doing.</li>
+</ul>
+</div>
+<div class="col nao">
+<p class="lbl">this isn’t for you if</p>
+<ul>
+<li>You already develop software and are looking for advanced technical content on agents and automation.</li>
+<li>You’re looking for a traditional video course—this format is guided reading with practice.</li>
+</ul>
+</div>
+</div>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">Roadmap</p>
+<h2>From first contact to contract</h2>
+<div class="aulas">
+<a class="au" href="curso.html#aula-1">
+<div class="num">1</div>
+<div><h3>Your first 30 days</h3><p>Leave with 3 real opportunities mapped out and a 30-day plan for your first paid project.</p></div>
+<div class="meta">22 min</div>
+</a>
+<a class="au" href="curso.html#aula-2">
+<div class="num">2</div>
+<div><h3>Inside the engine: the 3 layers</h3><p>Map the 3 layers of any professional automation — and identify which one is missing from any proposal.</p></div>
+<div class="meta">20 min</div>
+</a>
+<a class="au" href="curso.html#aula-3">
+<div class="num">3</div>
+<div><h3>Your content engine</h3><p>A tested content prompt that turns 1 of your texts into posts for 2 different social networks.</p></div>
+<div class="meta">24 min</div>
+</a>
+<a class="au" href="curso.html#aula-4">
+<div class="num">4</div>
+<div><h3>The talking service agent: AI by voice</h3><p>The 5 ways a voice agent fails — and what to require before putting one in front of a client.</p></div>
+<div class="meta">20 min</div>
+</a>
+<a class="au" href="curso.html#aula-5">
+<div class="num">5</div>
+<div><h3>Trust or verify? Test before the client</h3><p>A 5-question answer key for your work to tell you, with a number, whether AI is ready.</p></div>
+<div class="meta">22 min</div>
+</a>
+<a class="au" href="curso.html#aula-6">
+<div class="num">6</div>
+<div><h3>An assistant with your business's memory</h3><p>The manual that gets any AI assistant to answer in your style from the very first question.</p></div>
+<div class="meta">22 min</div>
+</a>
+<a class="au" href="curso.html#aula-7">
+<div class="num">7</div>
+<div><h3>Agents that work while you sleep</h3><p>How much freedom to give an AI agent—and where the stop button is for each task.</p></div>
+<div class="meta">20 min</div>
+</a>
+<a class="au" href="curso.html#aula-8">
+<div class="num">8</div>
+<div><h3>Selling to large companies</h3><p>The 6-question map that turns a conversation with a large company into a signed contract.</p></div>
+<div class="meta">22 min</div>
+</a>
+</div>
+<p style="margin-top:28px"><a class="cta" href="curso.html#trilha">see the full learning path →</a></p>
+</div></section>
+<footer><div class="wrap">How to Build an AI Services Business · INEMA.CLUB PRO</div></footer>
+</body>
+</html>
